@@ -31,7 +31,7 @@ export default function Header() {
       <div className='flex gap-2'>
         {user ?
           <button className="bg-sky-500 text-white py-1 px-3 rounded-full
-        hover:bg-sky-700 transition" onClick={() => hazLogout}>
+        hover:bg-sky-700 transition" onClick={hazLogout}>
           logout
           </button>
           :
