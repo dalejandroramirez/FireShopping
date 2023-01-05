@@ -1,9 +1,7 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-import { getMessaging, getToken } from "firebase/messaging";
+import { initializeApp } from "firebase/app";
+
+import { getMessaging, getToken} from "firebase/messaging";
 
 const vapidKey = "BLgBb79UdBlDy2UpLhp5q_0Pm4J5QYg1FSXROlJlnyXldhSieojJ5X4nhT6__qIs6yIZhyiezQGan2Gourr-zvk"
 
@@ -18,17 +16,20 @@ const firebaseConfig = {
 };
 export const app = initializeApp(firebaseConfig);
 
+// currentToken =
+// cf55Q8LMVho2sxFdfR-jE8:APA91bENbixMdluWAlko2r40U4fvpTvPHXcUq5zkifv9LVkR6g4sQFRavYYivPrbctzX7q1SPUJICYxm4zNhsyj33Ym98CIKSKUn8e_eYlAVIsDme_t4sa-bcrXbfee0KkS0nn5KFJ1K  
+
 
 // ServiceWorker
 
-const messaging = getMessaging();
+export const messaging = getMessaging();
 
 
-getToken(messaging, { vapidKey : vapidKey}).then((currentToken) => {
+getToken(messaging, { vapidKey: vapidKey }).then((currentToken) => {
   if (currentToken) {
     // Send the token to your server and update the UI if necessary
     // ...
-    console.log(currentToken);
+    console.log("currentToken  :", currentToken);
   } else {
     // Show permission request UI
     console.log('No registration token available. Request permission to generate one.');
@@ -38,6 +39,8 @@ getToken(messaging, { vapidKey : vapidKey}).then((currentToken) => {
   console.log('An error occurred while retrieving token. ', err);
   // ...
 });
+
+
 
 // Add the public key generated from the console here.
 
