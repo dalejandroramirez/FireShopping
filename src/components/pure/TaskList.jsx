@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Task } from '../models/task.model'
 import { addNewTask, deleteTask, getTasks, updateTask } from '../../firebase/taskController'
+import { AppContext } from '../../App';
 
 const TaskList = () => {
 
@@ -8,12 +9,18 @@ const TaskList = () => {
 
   const [tasks, setTasks] = useState([]);
 
-  const [mode, setMode] = useState('add')
+  const [mode, setMode] = useState('add');
+
+  const { user } = useContext(AppContext)
 
   const createNewTask = async () => {
-    await addNewTask(task);
-    setTask({ title: "", description: "" })
-    inicializeTasks()
+    try {
+      await addNewTask(task);
+      setTask({ title: "", description: "" })
+      inicializeTasks()
+    } catch (error) {
+      console.log("error");
+    }
   }
 
   const updateExistingTask = async () => {
@@ -38,10 +45,10 @@ const TaskList = () => {
 
 
   // Delete
-  const removeTask = async id => { 
+  const removeTask = async id => {
     await deleteTask(id);
     inicializeTasks();
-   }
+  }
 
   useEffect(() => {
     inicializeTasks()
@@ -54,6 +61,7 @@ const TaskList = () => {
       <div className='flex flex-col gap-1'>
         <input
           type='text'
+          disabled= {!user}
           value={task.title}
           placeholder="Titulo"
           className='border shadow outline-none focus:ring ring-orange-400 rounded px-2 py-1 w-fit'
@@ -61,6 +69,7 @@ const TaskList = () => {
         />
         <textarea
           type='text'
+          disabled= {!user}
           rows={3}
           value={task.description}
           placeholder="Description"
@@ -68,8 +77,11 @@ const TaskList = () => {
           onChange={(e) => setTask({ ...task, description: e.target.value })}
         />
 
-        <button className='text-white rounded shadow py-1 bg-orange-400 
-        hover:bg-orange-500 hover:text-black transition'
+        <button
+          className='text-white rounded shadow py-1 bg-orange-400 
+        hover:bg-orange-500 hover:text-black transition disabled:bg-orange-200 disabled:text-white '
+
+          disabled= {!user}
           onClick={() => mode === "add" ? createNewTask() : updateExistingTask()}>
           {mode === "add" ? "agregar" : "Actualizar"}
         </button>
@@ -89,13 +101,14 @@ const TaskList = () => {
                 <button
                   className='bg-red-600 text-white py-1 px-2 rounded-lg'
                   onClick={() =>
-                    window.confirm(`Seguro quiere eliminar la tarea ${task.title}?`) && 
+                    window.confirm(`Seguro quiere eliminar la tarea ${task.title}?`) &&
                     removeTask(task.id)}>eliminar
                 </button>
               </div>
             </div>
           </div>))}
       </div>
+      {!user && <p className='text-red-600'> Necesario estar logeado </p>}
     </div>
   )
 }
