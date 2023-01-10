@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Task } from '../models/task.model'
-
-import { db } from '../../firebase'
 import { addNewTask, deleteTask, getTasks, updateTask } from '../../firebase/taskController'
 
 const TaskList = () => {
 
-  const [task, setTask] = useState(new Task);
+  const [task, setTask] = useState(new Task());
 
   const [tasks, setTasks] = useState([]);
 
@@ -72,7 +70,7 @@ const TaskList = () => {
 
         <button className='text-white rounded shadow py-1 bg-orange-400 
         hover:bg-orange-500 hover:text-black transition'
-          onClick={() => mode == "add" ? createNewTask() : updateExistingTask()}>
+          onClick={() => mode === "add" ? createNewTask() : updateExistingTask()}>
           {mode === "add" ? "agregar" : "Actualizar"}
         </button>
         {/* <button className='text-white rounded shadow py-1 bg-orange-400 

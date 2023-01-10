@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { IoLogoFirebase, IoLogOut } from 'react-icons/io5'
+import { IoLogoFirebase} from 'react-icons/io5'
 import { AppContext } from '../../App'
 import { getAuth, signOut } from "firebase/auth";
 import toast from 'react-hot-toast';
