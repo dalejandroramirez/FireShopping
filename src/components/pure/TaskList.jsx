@@ -52,14 +52,13 @@ const TaskList = () => {
 
   return (
     <div>
-      <h1>Estas en la taskList</h1>
-      <div className='flex flex-col gap-4'>
-        <h2> Introduce una nueva tarea</h2>
+      <span className="text-xl font-semibold text-orange-700"> FireShopping Task</span>
+      <div className='flex flex-col gap-1'>
         <input
           type='text'
           value={task.title}
           placeholder="Titulo"
-          className='border shadow outline-none focus:ring ring-orange-400 rounded px-2 py-1 w-full'
+          className='border shadow outline-none focus:ring ring-orange-400 rounded px-2 py-1 w-fit'
           onChange={(e) => setTask({ ...task, title: e.target.value })}
         />
         <textarea

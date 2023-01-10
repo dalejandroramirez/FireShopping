@@ -23,10 +23,10 @@ export default function Header() {
 
 
   return (
-    <header className="h-20 w-full bg-gray-100 shadow-lg flex items-center justify-between px-8 fixed top-o" >
+    <header className="h-20 w-full bg-gray-100 shadow-lg flex items-center justify-between px-8 fixed top-0" >
       <div className="flex items-center gap-2 cursor-pointer" onClick={() => setRoute('home')}>
         <IoLogoFirebase className="text-2xl text-orange-600" />
-        <span className="text-xl font-semibold text-orange-700"> FireShopping </span>
+        <span className="text-xl font-semibold text-orange-700"> FireShopping</span>
       </div>
       <div className='flex gap-2'>
         {user ?
