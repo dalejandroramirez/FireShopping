@@ -49,13 +49,13 @@ const Register = () => {
           onChange={e => setEmail(e.target.value)}
           placeholder="example@host.com" />
         <input
-          className='border border-gray-500 rounded py-1 px-2 outline-none'
+          className='claveregister border border-gray-500 rounded py-1 px-2 outline-none'
           type="password"
           value={password}
           onChange={e => setPassword(e.target.value)}
           placeholder='************' />
         <button
-          className='bg-orange-600 py-1 text-white rounded-full shadow' >
+          className='submit-button bg-orange-600 py-1 text-white rounded-full shadow' >
           Registrate
         </button>
       </form>

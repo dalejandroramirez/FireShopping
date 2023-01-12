@@ -74,19 +74,19 @@ const Login = () => {
           className='flex flex-col gap-2 max-w-sm'
           onSubmit={hazLoginConEmail}>
           <input
-            className='border border-gray-500 rounded py-1 px-2 outline-none'
+            className='correo-btn border border-gray-500 rounded py-1 px-2 outline-none'
             type="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
             placeholder="example@host.com" />
           <input
-            className='border border-gray-500 rounded py-1 px-2 outline-none'
+            className='password-btn border border-gray-500 rounded py-1 px-2 outline-none'
             type="password"
             value={password}
             onChange={e => setPassword(e.target.value)}
             placeholder='************' />
           <button
-            className='bg-orange-600 py-1 text-white rounded-full shadow' >
+            className='login-btn bg-orange-600 py-1 text-white rounded-full shadow' >
             Log In
           </button>
         </form>

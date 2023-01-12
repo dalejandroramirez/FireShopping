@@ -19,8 +19,7 @@ const Footer = () => {
       text-white cursor-pointer hover:bg-white transition hover:text-orange-700 ' onClick={()=> setRoute('shopping')}>
         <MdOutlineShoppingCart />
       </div>
-      <div className='bg-orange-700 text-2xl p-2 rounded-full
-      text-white cursor-pointer hover:bg-white transition hover:text-orange-700 ' onClick={()=> setRoute('tasklist')}>
+      <div className='list-route' onClick={()=> setRoute('tasklist')}>
         <BsList />
       </div>
 

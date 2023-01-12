@@ -35,8 +35,7 @@ export default function Header() {
           logout
           </button>
           :
-          <button className="bg-sky-500 text-white py-1 px-3 rounded-full
-        hover:bg-sky-700 transition" onClick={() => setRoute('login')}>
+          <button className="login-button" onClick={() => setRoute('login')}>
             Login
           </button >}
 

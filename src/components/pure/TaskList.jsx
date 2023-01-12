@@ -78,8 +78,7 @@ const TaskList = () => {
         />
 
         <button
-          className='text-white rounded shadow py-1 bg-orange-400 
-        hover:bg-orange-500 hover:text-black transition disabled:bg-orange-200 disabled:text-white '
+          className='btn-create-task'
 
           disabled= {!user}
           onClick={() => mode === "add" ? createNewTask() : updateExistingTask()}>
